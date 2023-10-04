@@ -2,9 +2,9 @@ import numpy as np
 
 def overlap_and_add(chunks, overlap=256, window_len=1024):
     W = window_len
-    win_left_side = np.hanning(W)[:2*overlap:2]
-    win_right_side = np.hanning(W)[-2*overlap::2]
-    window = np.concatenate((win_left_side, np.ones(W - 2*overlap), win_right_side))
+    win_left_side = np.hanning(2 * overlap)[:overlap]
+    win_right_side = np.hanning(2 * overlap)[overlap:]
+    window = np.concatenate((win_left_side, np.ones(W - 2 * overlap), win_right_side))
     left_window = np.concatenate((np.ones(W - overlap), win_right_side))
     right_window = np.concatenate((win_left_side, np.ones(W - overlap)))    
     n_chunks = len(chunks)
