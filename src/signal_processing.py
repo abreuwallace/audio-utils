@@ -9,7 +9,6 @@ def overlap_and_add(chunks, overlap=256, window_len=1024):
     right_window = np.concatenate((win_left_side, np.ones(W - overlap)))    
     n_chunks = len(chunks)
     for i in range(n_chunks):
-        #print(chunks.shape)
         if i == 0:
             y = (chunks[i] * left_window).reshape(-1,)
         else:
