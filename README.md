@@ -1,2 +1,2 @@
 # audio-utils
-Library of small reusable functions for audio signal processing.
+Personal library of small reusable functions for audio signal processing.
