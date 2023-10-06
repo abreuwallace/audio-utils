@@ -1,5 +1,11 @@
 import numpy as np
 
+def to_mono(x):
+    if len(x.shape) > 1:
+        return np.mean(x, axis=-1)
+    else:
+        return x
+    
 def overlap_and_add(chunks, overlap=256, window_len=1024):
     W = window_len
     win_left_side = np.hanning(2 * overlap)[:overlap]
