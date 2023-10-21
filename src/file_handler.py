@@ -1,6 +1,6 @@
 import glob 
 
-def filenames_in_folder(path, format='wav'):
+def get_filenames_in_folder(path, format='wav'):
     if format == 'wav':
         filenames = glob.glob(path + '*.wav')
     elif format == 'mp3':
