@@ -1,12 +1,14 @@
+#for type hint
+from __future__ import annotations
 import numpy as np
 
-def to_mono(x):
+def to_mono(x: np.ndarray) -> np.ndarray:
     if len(x.shape) > 1:
         return np.mean(x, axis=-1)
     else:
         return x
     
-def overlap_and_add(chunks, overlap=256, window_len=1024):
+def overlap_and_add(chunks: list[np.ndarray], overlap=256, window_len=1024) -> np.ndarray:
     W = window_len
     win_left_side = np.bartlett(2 * overlap)[:overlap]
     win_right_side = np.bartlett(2 * overlap)[overlap:]
